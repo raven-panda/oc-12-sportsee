@@ -2,11 +2,13 @@ import js from '@eslint/js';
 import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
 
-export default [
+export default tseslint.config(
   { ignores: ['dist'] },
   {
-    files: ['**/*.{js,jsx}'],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -25,6 +27,8 @@ export default [
       ...reactHooks.configs.recommended.rules,
       semi: ["error", "always"],
       eqeqeq: ["error", "always"],
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": "warn",
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
       'react-refresh/only-export-components': [
         'warn',
@@ -32,4 +36,4 @@ export default [
       ],
     },
   },
-];
+);

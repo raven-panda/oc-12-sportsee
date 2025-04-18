@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import AppLogo from "../AppLogo.jsx";
+import AppLogo from "../AppLogo.js";
 import styles from "../components.module.css";
 
 export default function MainLayout() {
