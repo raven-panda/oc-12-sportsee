@@ -23,7 +23,6 @@ export default tseslint.config(
       'react-refresh': reactRefresh,
     },
     rules: {
-      ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       semi: ["error", "always"],
       eqeqeq: ["error", "always"],
