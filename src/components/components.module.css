@@ -41,6 +41,9 @@
 /* Sidebar navigation */
 
 .sidebarNavigation {
+  position: fixed;
+  z-index: 10;
+  height: 100%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background: var(--color-main-1);
   padding: 0 26px;
@@ -60,6 +63,7 @@
   padding: 14px;
   border-radius: 6px;
   box-sizing: border-box;
+  color: var(--color-accent-red);
 
   outline: none;
   border: none;
