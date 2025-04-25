@@ -1,10 +1,9 @@
 import IconProps from "./IconProps";
 
-export default function MeditationIcon({ width = 36, height = 32 }: IconProps) {
+export default function MeditationIcon({ width = 36, height = 32, ...props }: IconProps) {
   return (
     <svg
-      width={width}
-      height={height}
+      width={width} height={height} {...props}
       viewBox="0 0 36 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
