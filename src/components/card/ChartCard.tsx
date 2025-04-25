@@ -1,23 +1,25 @@
 import styles from "../components.module.css";
 import { ReactNode } from "react";
 
-interface DashboardCardProps {
+interface ChartCardProps {
   variant?: "neutral" | "dark" | "red";
-  children: ReactNode;
+  children?: ReactNode;
 }
 
-export default function DashboardCard({
+export default function ChartCard({
   variant = "neutral",
   children,
-}: DashboardCardProps) {
+}: ChartCardProps) {
   return (
     <article
       className={
-        variant === "red"
+        styles.chartCard +
+        " " +
+        (variant === "red"
           ? styles.cardRed
           : variant === "dark"
             ? styles.cardDark
-            : styles.cardNeutral
+            : styles.cardNeutral)
       }
     >
       {children}

@@ -16,6 +16,7 @@
 
 .layout > header {
   position: fixed;
+  z-index: 20;
   width: 100%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
@@ -71,6 +72,10 @@
 }
 
 /* Cards */
+.chartCard {
+  border-radius: 5px;
+}
+
 .cardNeutral {
   background-color: var(--color-main-2);
 }
@@ -79,4 +84,59 @@
 }
 .cardRed {
   background-color: var(--color-accent-red);
+}
+
+.infoCard {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-main-2);
+  gap: 24px;
+  border-radius: 5px;
+  padding: 32px;
+}
+
+.infoCardIcon {
+  padding: 20px;
+  aspect-ratio: 1/1;
+  width: 60px;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+.infoCardIcon svg {
+  display: block;
+  justify-self: center;
+}
+
+.infoCardIcon.red {
+  color: var(--color-accent-red);
+  background-color: var(--color-accent-red-2);
+}
+
+.infoCardIcon.blue {
+  color: var(--color-accent-blue);
+  background-color: var(--color-accent-blue-2);
+}
+
+.infoCardIcon.yellow {
+  color: var(--color-accent-yellow);
+  background-color: var(--color-accent-yellow-2);
+}
+
+.infoCardIcon.pink {
+  color: var(--color-accent-pink);
+  background-color: var(--color-accent-pink-2);
+}
+
+.infoCardDetails > p {
+  margin: 0;
+}
+
+.infoCardDetails > p:first-child {
+  font-size: 1.25rem;
+}
+
+.infoCardDetails > p:last-child {
+  color: var(--color-main-4);
+  font-size: 0.875rem;
 }
