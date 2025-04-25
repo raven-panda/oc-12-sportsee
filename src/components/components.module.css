@@ -72,7 +72,8 @@
 }
 
 /* Cards */
-.chartCard {
+.cardNeutral, .cardDark, .cardRed {
+  padding: 32px;
   border-radius: 5px;
 }
 
@@ -91,8 +92,6 @@
   align-items: center;
   background-color: var(--color-main-2);
   gap: 24px;
-  border-radius: 5px;
-  padding: 32px;
 }
 
 .infoCardIcon {

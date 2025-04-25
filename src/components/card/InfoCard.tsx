@@ -1,5 +1,6 @@
 import styles from "../components.module.css";
 import { ReactNode } from "react";
+import Card from "@/components/card/Card.tsx";
 
 interface InfoCardProps {
   icon: ReactNode;
@@ -17,7 +18,7 @@ export default function InfoCard({
   variant,
 }: InfoCardProps) {
   return (
-    <article className={styles.infoCard}>
+    <Card className={styles.infoCard}>
       <div className={styles.infoCardIcon + " " + styles[variant]}>
         {icon}
       </div>
@@ -25,6 +26,6 @@ export default function InfoCard({
         <p>{amount}{unit}</p>
         <p>{name}</p>
       </div>
-    </article>
+    </Card>
   );
 }

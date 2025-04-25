@@ -3,17 +3,19 @@ import { ReactNode } from "react";
 
 interface ChartCardProps {
   variant?: "neutral" | "dark" | "red";
+  className?: string;
   children?: ReactNode;
 }
 
-export default function ChartCard({
+export default function Card({
   variant = "neutral",
+  className,
   children,
 }: ChartCardProps) {
   return (
     <article
       className={
-        styles.chartCard +
+        className +
         " " +
         (variant === "red"
           ? styles.cardRed

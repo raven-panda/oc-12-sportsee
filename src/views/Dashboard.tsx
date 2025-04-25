@@ -1,12 +1,13 @@
 import "./dashboard.css";
 import SidebarNavigation from "../components/layout/SidebarNavigation";
-import ChartCard from "../components/card/ChartCard.tsx";
+import Card from "../components/card/Card.tsx";
 import { useUserData } from "@/hook/UserHooks.ts";
 import InfoCard from "@/components/card/InfoCard.tsx";
 import FireIcon from "@/components/icon/FireIcon.tsx";
 import ChickenIcon from "@/components/icon/ChickenIcon.tsx";
 import AppleIcon from "@/components/icon/AppleIcon.tsx";
 import CheeseburgerIcon from "@/components/icon/CheeseburgerIcon.tsx";
+import { UserActivitySessionType } from "@/definition/UserDefinitions.ts";
 
 export default function DashboardPage() {
   const { mainData, activities, averageSessions, performances, error, isLoading } = useUserData(Number(import.meta.env.VITE_FIXTURE_USER_ID));
@@ -21,7 +22,7 @@ export default function DashboardPage() {
         <h2>Félicitation ! Vous avez explosé vos objectifs hier &#x1F44F;</h2>
         <div id="dashboard-cards-container">
           <section>
-            <ChartCard>hello world</ChartCard>
+            <ActivityCard activities={activities} />
           </section>
           <section>
             <InfoCard variant={"red"} icon={<FireIcon />} name="Calories" amount={formatToK(mainData?.keyData.calorieCount)} unit="kCal"/>
@@ -40,4 +41,10 @@ function formatToK(amount: number | undefined) {
     return 0;
 
   return (amount / 1000).toLocaleString('en-US', { minimumFractionDigits: 3 }).replace('.', ',');
+}
+
+function ActivityCard({ activities }: { activities: UserActivitySessionType[] | undefined }) {
+  return (
+    <Card>hello world</Card>
+  );
 }
