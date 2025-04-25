@@ -10,6 +10,11 @@
   margin-left: 10px;
 }
 
+.layout header {
+  position: fixed;
+  width: 100%;
+}
+
 .layoutNavigation {
   background: var(--color-main-1);
   padding: 19px 29px;
@@ -26,4 +31,29 @@
 
 .layoutNavigation a:last-child {
   margin-right: 59px;
+}
+
+.sidebarNavigation {
+  background: var(--color-main-1);
+  padding: 0 26px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 20px;
+}
+
+.sidebarNavigation > button {
+  background: var(--color-common-1);
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  border-radius: 6px;
+  box-sizing: border-box;
+
+  outline: none;
+  border: none;
+  cursor: pointer;
 }

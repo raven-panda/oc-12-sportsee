@@ -4,15 +4,17 @@ import styles from "../components.module.css";
 
 export default function MainLayout() {
   return (
-    <main>
-      <nav className={styles.layoutNavigation}>
-        <AppLogo />
-        <Link to="#">Accueil</Link>
-        <Link to="#">Profil</Link>
-        <Link to="#">Réglage</Link>
-        <Link to="#">Communauté</Link>
-      </nav>
+    <div className={styles.layout}>
+      <header>
+        <nav className={styles.layoutNavigation}>
+          <AppLogo />
+          <Link to="#">Accueil</Link>
+          <Link to="#">Profil</Link>
+          <Link to="#">Réglage</Link>
+          <Link to="#">Communauté</Link>
+        </nav>
+      </header>
       <Outlet />
-    </main>
+    </div>
   );
 }

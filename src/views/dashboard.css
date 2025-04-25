@@ -1,0 +1,10 @@
+.dashboard {
+  display: flex;
+  min-height: 100%;
+}
+
+.dashboard > .dashboard-main-section {
+  flex-grow: 1;
+  min-height: 100vh;
+  overflow: auto;
+}
