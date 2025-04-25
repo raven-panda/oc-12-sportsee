@@ -7,4 +7,24 @@
   flex-grow: 1;
   min-height: 100vh;
   overflow: auto;
+  padding: 100px 90px 86px;
+  box-sizing: border-box;
+}
+
+.dashboard > .dashboard-main-section h1 {
+  font-size: 3rem;
+  margin-bottom: 41px;
+}
+
+.dashboard > .dashboard-main-section .title-username {
+  color: var(--color-accent-red);
+}
+
+.dashboard > .dashboard-main-section h2 {
+  font-size: 1.125rem;
+  margin-bottom: 77px;
+}
+
+.dashboard > .dashboard-main-section .dashboard-cards-container {
+  display: flex;
 }

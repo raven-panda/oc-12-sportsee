@@ -1,3 +1,5 @@
+/* App logo */
+
 .appLogo {
   color: var(--color-accent-red);
   display: flex;
@@ -10,7 +12,9 @@
   margin-left: 10px;
 }
 
-.layout header {
+/* Layout */
+
+.layout > header {
   position: fixed;
   width: 100%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -33,6 +37,8 @@
 .layoutNavigation a:last-child {
   margin-right: 59px;
 }
+
+/* Sidebar navigation */
 
 .sidebarNavigation {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -58,4 +64,15 @@
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+/* Cards */
+.cardNeutral {
+  background-color: var(--color-main-2);
+}
+.cardDark {
+  background-color: var(--color-main-3);
+}
+.cardRed {
+  background-color: var(--color-accent-red);
 }
