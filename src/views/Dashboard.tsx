@@ -10,11 +10,17 @@ import ActivityCard from "@/components/charts/ActivityChart.tsx";
 import AverageSessionLengthCard from "@/components/charts/AverageSessionLengthCard.tsx";
 import SessionTypeRadarChart from "@/components/charts/SessionTypeRadarChart.tsx";
 import ScoreCard from "@/components/charts/ScoreCard.tsx";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function DashboardPage() {
-  const { mainData, activities, averageSessions, performances } = useUserData(
-    Number(import.meta.env.VITE_FIXTURE_USER_ID),
-  );
+  const { mainData, activities, averageSessions, performances, setUserId } = useUserData();
+  const params = useParams();
+
+  useEffect(() => {
+    if (params?.userId)
+      setUserId(Number(params.userId));
+  }, [params, setUserId]);
 
   return (
     <main className="dashboard">

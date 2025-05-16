@@ -7,7 +7,8 @@ import {
   UserAverageSessionType,
 } from "@/definition/UserDefinitions.ts";
 
-export function useUserData(userId: number) {
+export function useUserData() {
+  const [userId, setUserId] = useState<number | undefined>();
   const [mainData, setMainData] = useState<
     ResponseUserMainDataType | undefined
   >();
@@ -48,5 +49,6 @@ export function useUserData(userId: number) {
     performances,
     error,
     isLoading,
+    setUserId
   };
 }
