@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
-import UserService from "@/service/UserService.ts";
+import UserService from "@/api/service/UserService.ts";
 import {
   ResponseUserMainDataType,
   ResponseUserPerformanceType,
   UserActivitySessionType,
   UserAverageSessionType,
 } from "@/definition/UserDefinitions.ts";
+import { usePageError } from "@/hook/PageErrorHooks.tsx";
+import PageErrorBuilder from "@/utils/PageErrorBuilder.ts";
 
 /**
  * Manage data retrieval from service needed for the dashboard
  */
 export function useUserData() {
+  const { error, setError } = usePageError();
+
   const [userId, setUserId] = useState<number | undefined>();
   const [mainData, setMainData] = useState<
     ResponseUserMainDataType | undefined
@@ -24,12 +28,10 @@ export function useUserData() {
   const [performances, setPerformances] = useState<
     ResponseUserPerformanceType | undefined
   >();
-  const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!userId) {
-      setIsLoading(false);
       return;
     }
 
@@ -40,10 +42,12 @@ export function useUserData() {
         setAverageSessions(res.data.averageSessions?.data.sessions);
         setPerformances(res.data.performance?.data);
 
-        setError(res.error);
+        if (res.error) {
+          setError(PageErrorBuilder(res.error, "Utilisateur").message);
+        }
       })
       .finally(() => setIsLoading(false));
-  }, [userId]);
+  }, [setError, userId]);
 
   return {
     mainData,

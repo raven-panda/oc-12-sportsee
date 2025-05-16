@@ -1,8 +1,13 @@
 import { Link, Outlet } from "react-router-dom";
 import AppLogo from "../AppLogo.js";
 import styles from "../components.module.css";
+import { usePageError } from "@/hook/PageErrorHooks.tsx";
+import ErrorPage from "@/views/error/ErrorPage.tsx";
 
 export default function MainLayout() {
+  const { error } = usePageError();
+  console.log({ error });
+
   return (
     <div className={styles.layout}>
       <header>
@@ -14,7 +19,7 @@ export default function MainLayout() {
           <Link to="#">Communauté</Link>
         </nav>
       </header>
-      <Outlet />
+      {error ? <ErrorPage error={error} /> : <Outlet />}
     </div>
   );
 }

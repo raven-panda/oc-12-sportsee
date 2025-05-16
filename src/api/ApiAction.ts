@@ -7,7 +7,12 @@ import axios from "axios";
 
 interface Response<TRes> {
   data?: TRes;
-  error?: any;
+  error?: ResponseError | undefined;
+}
+
+export interface ResponseError {
+  status?: number;
+  isApiUnavailable?: boolean;
 }
 
 export async function apiGet<TRes>(
@@ -19,11 +24,14 @@ export async function apiGet<TRes>(
     return {
       data: res.data,
     };
-  } catch (error) {
+  } catch (error: any) {
     console.error({ error });
 
     return {
-      error: error,
+      error: {
+        status: error?.status,
+        isApiUnavailable: error?.code && error.code === "ERR_NETWORK",
+      },
     };
   }
 }

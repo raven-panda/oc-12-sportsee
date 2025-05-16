@@ -12,10 +12,17 @@ import SessionTypeRadarChart from "@/components/charts/SessionTypeRadarChart.tsx
 import ScoreCard from "@/components/charts/ScoreCard.tsx";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import LoadingIndicator from "@/components/LoadingIndicator.tsx";
 
 export default function DashboardPage() {
-  const { mainData, activities, averageSessions, performances, setUserId } =
-    useUserData();
+  const {
+    mainData,
+    activities,
+    averageSessions,
+    performances,
+    isLoading,
+    setUserId,
+  } = useUserData();
   const params = useParams();
 
   useEffect(() => {
@@ -26,53 +33,61 @@ export default function DashboardPage() {
     <main className="dashboard">
       <SidebarNavigation variant={"dashboard"} />
       <section className="dashboard-main-section">
-        <h1>
-          Bonjour,{" "}
-          <span className="title-username">
-            {mainData?.userInfos.firstName} {mainData?.userInfos.lastName}
-          </span>
-        </h1>
-        <h2>Félicitation ! Vous avez explosé vos objectifs hier &#x1F44F;</h2>
-        <div id="dashboard-cards-container">
-          <section>
-            <ActivityCard activities={activities} />
-            <div id={"dashboard-sub-cards"}>
-              <AverageSessionLengthCard sessions={averageSessions} />
-              <SessionTypeRadarChart performances={performances} />
-              <ScoreCard score={mainData?.todayScore} />
+        {isLoading ? (
+          <LoadingIndicator />
+        ) : (
+          <>
+            <h1>
+              Bonjour,{" "}
+              <span className="title-username">
+                {mainData?.userInfos.firstName} {mainData?.userInfos.lastName}
+              </span>
+            </h1>
+            <h2>
+              Félicitation ! Vous avez explosé vos objectifs hier &#x1F44F;
+            </h2>
+            <div id="dashboard-cards-container">
+              <section>
+                <ActivityCard activities={activities} />
+                <div id={"dashboard-sub-cards"}>
+                  <AverageSessionLengthCard sessions={averageSessions} />
+                  <SessionTypeRadarChart performances={performances} />
+                  <ScoreCard score={mainData?.todayScore} />
+                </div>
+              </section>
+              <section>
+                <InfoCard
+                  variant={"red"}
+                  icon={<FireIcon />}
+                  name="Calories"
+                  amount={formatToK(mainData?.keyData.calorieCount)}
+                  unit="kCal"
+                />
+                <InfoCard
+                  variant={"blue"}
+                  icon={<ChickenIcon />}
+                  name="Proteines"
+                  amount={mainData?.keyData.proteinCount ?? 0}
+                  unit="g"
+                />
+                <InfoCard
+                  variant={"yellow"}
+                  icon={<AppleIcon />}
+                  name="Glucides"
+                  amount={mainData?.keyData.carbohydrateCount ?? 0}
+                  unit="g"
+                />
+                <InfoCard
+                  variant={"pink"}
+                  icon={<CheeseburgerIcon />}
+                  name="Lipides"
+                  amount={mainData?.keyData.lipidCount ?? 0}
+                  unit="g"
+                />
+              </section>
             </div>
-          </section>
-          <section>
-            <InfoCard
-              variant={"red"}
-              icon={<FireIcon />}
-              name="Calories"
-              amount={formatToK(mainData?.keyData.calorieCount)}
-              unit="kCal"
-            />
-            <InfoCard
-              variant={"blue"}
-              icon={<ChickenIcon />}
-              name="Proteines"
-              amount={mainData?.keyData.proteinCount ?? 0}
-              unit="g"
-            />
-            <InfoCard
-              variant={"yellow"}
-              icon={<AppleIcon />}
-              name="Glucides"
-              amount={mainData?.keyData.carbohydrateCount ?? 0}
-              unit="g"
-            />
-            <InfoCard
-              variant={"pink"}
-              icon={<CheeseburgerIcon />}
-              name="Lipides"
-              amount={mainData?.keyData.lipidCount ?? 0}
-              unit="g"
-            />
-          </section>
-        </div>
+          </>
+        )}
       </section>
     </main>
   );

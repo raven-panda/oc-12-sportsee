@@ -3,8 +3,8 @@ import {
   API_USER_PERFORMANCE,
   API_USER_MAIN_DATA,
   API_USER_AVERAGE_SESSIONS,
-} from "@/service/ApiEnpoints.ts";
-import { apiGet } from "@/service/ApiAction.ts";
+} from "@/api/ApiEnpoints.ts";
+import { apiGet } from "@/api/ApiAction.ts";
 import {
   ResponseUserActivityType,
   ResponseUserAverageSessionsType,
