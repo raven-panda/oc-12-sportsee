@@ -1,4 +1,4 @@
-# Sportsee
+# SportSee
 
 Push your limits and track every move with SportSee — the ultimate fitness companion that turns your progress into power.
 
@@ -25,6 +25,14 @@ This project is made with React + Vite + TypeScript.
 ```
 src/
 |
+| -- api /
+| ---- # All back-end data code related
+| ---- ApiActions.ts # -> functions used for queries, fetch error management logic is here
+| ---- ApiEndpoints.ts # -> string constants that contains all possible API endpoints
+|
+| ---- service/
+| ------ # Contains all back-end data fetching logic as services
+|
 | -- assets/
 | ---- # contains fonts, pictures etc
 |
@@ -37,10 +45,8 @@ src/
 | -- hook/
 | ---- # React hooks for data distribution, they uses the service to place data into a state
 |
-| -- service/
-| ---- # Contains all back-end data fetching logic
-| ---- ApiActions.ts # -> functions used for queries, fetch error management logic is here
-| ---- ApiEndpoints.ts # -> string constants that contains all possible API endpoints
+| -- utils/
+| ---- # Utilities classes or functions designed for specific uses
 |
 | -- views/
 | ---- # All pages component used in the router
