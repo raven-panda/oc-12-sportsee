@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import AppLogo from "../AppLogo.js";
 import styles from "../components.module.css";
-import { usePageError } from "@/hook/PageErrorHooks.tsx";
+import { usePageError } from "@/hook/PageErrorHooks.ts";
 import ErrorPage from "@/views/error/ErrorPage.tsx";
 
 export default function MainLayout() {

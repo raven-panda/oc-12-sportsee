@@ -20,6 +20,7 @@ export default function DashboardPage() {
     activities,
     averageSessions,
     performances,
+    scoreData,
     isLoading,
     setUserId,
   } = useUserData();
@@ -52,7 +53,7 @@ export default function DashboardPage() {
                 <div id={"dashboard-sub-cards"}>
                   <AverageSessionLengthCard sessions={averageSessions} />
                   <SessionTypeRadarChart performances={performances} />
-                  <ScoreCard score={mainData?.todayScore ?? mainData?.score} />
+                  <ScoreCard scoreData={scoreData} />
                 </div>
               </section>
               <section>

@@ -1,4 +1,3 @@
-import { UserActivitySessionType } from "@/definition/UserDefinitions.ts";
 import Card from "@/components/card/Card.tsx";
 import {
   Bar,
@@ -11,26 +10,17 @@ import {
   YAxis,
 } from "recharts";
 import styles from "../components.module.css";
+import { UserActivitySessionTypeFormatted } from "@/definition/ChartDefinitions.ts";
 
 export default function ActivityCard({
   activities,
 }: {
-  activities: UserActivitySessionType[] | undefined;
+  activities: UserActivitySessionTypeFormatted[] | undefined;
 }) {
-  const convertActivitiesToChartData = () => {
-    return (
-      activities?.map((act, i) => ({
-        name: i + 1,
-        weight: act.kilogram,
-        cal: act.calories,
-      })) ?? []
-    );
-  };
-
   return (
     <Card variant={"neutral"} className={styles.activityCard}>
       <ResponsiveContainer width={"100%"} height={"100%"}>
-        <BarChart data={convertActivitiesToChartData()}>
+        <BarChart data={activities}>
           <Bar
             dataKey="weight"
             radius={[7, 7, 0, 0]}

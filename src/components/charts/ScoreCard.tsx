@@ -6,26 +6,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import styles from "@/components/components.module.css";
+import { UserScoreFormatted } from "@/definition/ChartDefinitions.ts";
 
 export default function ScoreCard({
-  score = 0,
+  scoreData,
 }: {
-  score: number | undefined;
+  scoreData: UserScoreFormatted | undefined;
 }) {
-  const radialChartData = [
-    {
-      name: "max",
-      value: 1 - Math.max(0, Math.min(1, score ?? 0)),
-      fill: "transparent",
-    },
-    {
-      name: "score",
-      value: Math.max(0, Math.min(1, score ?? 0)),
-      fill: "#FF0000",
-    },
-  ];
-
-  // TODO : finish background white
   return (
     <Card variant={"neutral"}>
       <ResponsiveContainer width={"100%"} height={"100%"}>
@@ -34,7 +21,7 @@ export default function ScoreCard({
           outerRadius="100%"
           cx="50%"
           cy="50%"
-          data={radialChartData}
+          data={scoreData?.chartData ?? []}
           startAngle={90}
           endAngle={360 + 90}
         >
@@ -43,7 +30,7 @@ export default function ScoreCard({
         </RadialBarChart>
       </ResponsiveContainer>
       <p className={styles.userScore}>
-        <strong>{score * 100}%</strong>
+        <strong>{scoreData ? scoreData.userScore * 100 : 0}%</strong>
         <br /> de votre objectif
       </p>
     </Card>

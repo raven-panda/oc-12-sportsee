@@ -1,6 +1,6 @@
-/**
- * This file contains types for back end data response
- */
+//
+// This file contains types for back end data response
+//
 
 export interface ResponseUserMainDataType {
   id: number;

@@ -1,8 +1,8 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import DashboardPage from "./views/Dashboard";
 import MainLayout from "./components/layout/MainLayout";
-import { PageErrorContextProvider } from "@/hook/PageErrorHooks.tsx";
 import ErrorPage from "@/views/error/ErrorPage.tsx";
+import { PageErrorContextProvider } from "@/components/context/PageErrorContext.tsx";
 
 function App() {
   return (

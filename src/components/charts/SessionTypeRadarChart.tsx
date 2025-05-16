@@ -1,4 +1,3 @@
-import { ResponseUserPerformanceType } from "@/definition/UserDefinitions.ts";
 import Card from "@/components/card/Card.tsx";
 import {
   PolarAngleAxis,
@@ -8,59 +7,17 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import styles from "@/components/components.module.css";
+import { ResponseUserPerformanceTypeFormatted } from "@/definition/ChartDefinitions.ts";
 
 export default function SessionTypeRadarChart({
   performances,
 }: {
-  performances: ResponseUserPerformanceType | undefined;
+  performances: ResponseUserPerformanceTypeFormatted[] | undefined;
 }) {
-  const getKindLabel = (kind: string) => {
-    switch (kind) {
-      case "intensity":
-        return "Intensité";
-      case "cardio":
-        return "Cardio";
-      case "endurance":
-        return "Endurance";
-      case "energy":
-        return "Énergie";
-      case "speed":
-        return "Vitesse";
-      case "strength":
-        return "Force";
-      default:
-        return null;
-    }
-  };
-
-  const performancesToChartData = () => {
-    return performances
-      ? performances.data.map((perf) => ({
-          name: getKindLabel(performances.kind[perf.kind]),
-          value: perf.value,
-        }))
-      : [];
-  };
-
-  function CustomTick({ payload, x, y, textAnchor }: any) {
-    return (
-      <text
-        className={styles.radarTick}
-        x={x}
-        y={y}
-        fontSize={"1em"}
-        textAnchor={textAnchor}
-        fill={"#FFFFFF"}
-      >
-        {payload.value}
-      </text>
-    );
-  }
-
   return (
     <Card className={styles.sessionTypeRadarCard} variant={"dark"}>
       <ResponsiveContainer width={"100%"} height={"100%"}>
-        <RadarChart outerRadius={"70%"} data={performancesToChartData()}>
+        <RadarChart outerRadius={"70%"} data={performances}>
           {performances && <PolarGrid radialLines={false} />}
           <PolarAngleAxis
             tick={<CustomTick />}
@@ -73,5 +30,20 @@ export default function SessionTypeRadarChart({
         </RadarChart>
       </ResponsiveContainer>
     </Card>
+  );
+}
+
+function CustomTick({ payload, x, y, textAnchor }: any) {
+  return (
+    <text
+      className={styles.radarTick}
+      x={x}
+      y={y}
+      fontSize={"1em"}
+      textAnchor={textAnchor}
+      fill={"#FFFFFF"}
+    >
+      {payload.value}
+    </text>
   );
 }
