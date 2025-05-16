@@ -43,7 +43,7 @@ export default function ScoreCard({
         </RadialBarChart>
       </ResponsiveContainer>
       <p className={styles.userScore}>
-        <strong>12%</strong>
+        <strong>{score * 100}%</strong>
         <br /> de votre objectif
       </p>
     </Card>
