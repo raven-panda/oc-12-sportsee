@@ -1,22 +1,13 @@
 import { ResponseUserPerformanceType } from "@/definition/UserDefinitions.ts";
 import Card from "@/components/card/Card.tsx";
-import {
-  PolarAngleAxis,
-  PolarGrid,
-  Radar,
-  RadarChart,
-  ResponsiveContainer,
-} from "recharts";
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer, } from "recharts";
 import styles from "@/components/components.module.css";
-import { useRef } from "react";
 
 export default function SessionTypeRadarChart({
   performances,
 }: {
   performances: ResponseUserPerformanceType | undefined;
 }) {
-  const containerRef = useRef<HTMLElement | null>(null);
-
   const getKindLabel = (kind: string) => {
     switch (kind) {
       case "intensity":
@@ -63,7 +54,6 @@ export default function SessionTypeRadarChart({
   return (
     <Card
       className={styles.sessionTypeRadarCard}
-      ref={containerRef}
       variant={"dark"}
     >
       <ResponsiveContainer width={"100%"} height={"100%"}>

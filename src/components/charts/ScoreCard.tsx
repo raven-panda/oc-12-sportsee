@@ -42,24 +42,6 @@ export default function ScoreCard({
           <Legend content={<CustomLegend />} verticalAlign="top" />
         </RadialBarChart>
       </ResponsiveContainer>
-      {/*<PieChart width={cardRef.current ? cardRef.current.clientWidth - 50 : 258} height={cardRef.current ? cardRef.current.clientHeight - 50 : 263}>
-        <Pie
-          data={pieData}
-          dataKey="value"
-          nameKey="name"
-          cx="50%"
-          cy="50%"
-          innerRadius={105}
-          outerRadius={120}
-          startAngle={90}
-          endAngle={360 + 90}
-        >
-          {pieData.map((_, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index]} />
-          ))}
-        </Pie>
-        <Legend content={<CustomLegend />} verticalAlign="top" />
-      </PieChart>*/}
       <p className={styles.userScore}>
         <strong>12%</strong>
         <br /> de votre objectif
