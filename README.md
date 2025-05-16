@@ -60,7 +60,9 @@ src/
    ```sh
    git clone https://github.com/raven-panda/oc-12-sportsee
    ```
-3. Install libraries and start the application
+3. Change `VITE_API_URI` in `.env` if you use another URI.
+4. Change `VITE_FIXTURE_ENABLED` in `.env` to **false** or **true** if you want to use fixtures or not.
+5. Install libraries and start the application
    ```sh
    # Using NPM
    npm install

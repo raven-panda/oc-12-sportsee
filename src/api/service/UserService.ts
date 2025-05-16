@@ -16,9 +16,7 @@ import UserServiceMock from "@/__mocks__/user/UserServiceMock.ts";
 const isFixtureEnabled = import.meta.env.VITE_FIXTURE_ENABLED === "true";
 
 export interface IUserService {
-  getAllDataByUserId(
-    userId: number,
-  ): Promise<
+  getAllDataByUserId(userId: number): Promise<
     ApiResponse<{
       mainData?: ResponseUserMainDataType;
       activity?: ResponseUserActivityType;
