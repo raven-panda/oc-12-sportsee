@@ -1,3 +1,8 @@
+/**
+ * This file contains query type builder for axios call
+ * We manage errors here
+ */
+
 import axios from "axios";
 
 interface Response<TRes> {

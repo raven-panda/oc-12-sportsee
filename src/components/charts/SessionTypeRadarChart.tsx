@@ -1,6 +1,12 @@
 import { ResponseUserPerformanceType } from "@/definition/UserDefinitions.ts";
 import Card from "@/components/card/Card.tsx";
-import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer, } from "recharts";
+import {
+  PolarAngleAxis,
+  PolarGrid,
+  Radar,
+  RadarChart,
+  ResponsiveContainer,
+} from "recharts";
 import styles from "@/components/components.module.css";
 
 export default function SessionTypeRadarChart({
@@ -52,10 +58,7 @@ export default function SessionTypeRadarChart({
   }
 
   return (
-    <Card
-      className={styles.sessionTypeRadarCard}
-      variant={"dark"}
-    >
+    <Card className={styles.sessionTypeRadarCard} variant={"dark"}>
       <ResponsiveContainer width={"100%"} height={"100%"}>
         <RadarChart outerRadius={"70%"} data={performancesToChartData()}>
           {performances && <PolarGrid radialLines={false} />}

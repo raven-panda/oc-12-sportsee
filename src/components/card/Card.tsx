@@ -8,15 +8,18 @@ interface ChartCardProps {
   ref?: RefObject<HTMLElement | null>;
 }
 
+/**
+ * @param variant {"neutral" | "dark" | "red"} Applies a different style for each variant
+ * @param className {string} Additional CSS class to apply to the card
+ * @param children {ReactNode}
+ */
 export default function Card({
   variant = "neutral",
   className,
   children,
-  ref,
 }: ChartCardProps) {
   return (
     <article
-      ref={ref}
       className={
         (className ? className + " " : "") +
         (variant === "red"

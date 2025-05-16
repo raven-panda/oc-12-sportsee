@@ -12,6 +12,9 @@ import {
   ResponseUserPerformanceType,
 } from "@/definition/UserDefinitions.ts";
 
+/**
+ * Back end data retrieval logic for User resource
+ */
 const UserService = {
   getAllDataByUserId: async (userId: number) => {
     const [mainData, activity, averageSessions, performance] =

@@ -10,6 +10,14 @@ interface InfoCardProps {
   variant: "red" | "blue" | "yellow" | "pink";
 }
 
+/**
+ * A smaller card to show amount informations that extends Card component
+ * @param icon {ReactNode} The icon component to show along the data
+ * @param name {string} Name of the data
+ * @param amount {number | string} Amount to show along data
+ * @param unit {string} The unit of the amount
+ * @param variant {"red" | "blue" | "yellow" | "pink"} Applies different styles for each to the icon
+ */
 export default function InfoCard({
   icon,
   name,

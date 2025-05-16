@@ -14,12 +14,12 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function DashboardPage() {
-  const { mainData, activities, averageSessions, performances, setUserId } = useUserData();
+  const { mainData, activities, averageSessions, performances, setUserId } =
+    useUserData();
   const params = useParams();
 
   useEffect(() => {
-    if (params?.userId)
-      setUserId(Number(params.userId));
+    if (params?.userId) setUserId(Number(params.userId));
   }, [params, setUserId]);
 
   return (

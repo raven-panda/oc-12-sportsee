@@ -7,6 +7,9 @@ import {
   UserAverageSessionType,
 } from "@/definition/UserDefinitions.ts";
 
+/**
+ * Manage data retrieval from service needed for the dashboard
+ */
 export function useUserData() {
   const [userId, setUserId] = useState<number | undefined>();
   const [mainData, setMainData] = useState<
@@ -49,6 +52,6 @@ export function useUserData() {
     performances,
     error,
     isLoading,
-    setUserId
+    setUserId,
   };
 }

@@ -1,3 +1,8 @@
+/**
+ * This file contains all API endpoints
+ * Add new endpoints here
+ */
+
 const { VITE_API_URI } = import.meta.env;
 
 export const API_USER_MAIN_DATA = `${VITE_API_URI}/user/:userId`;
