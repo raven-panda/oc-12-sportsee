@@ -5,29 +5,30 @@
 
 import axios from "axios";
 
-interface Response<TRes> {
-  data?: TRes;
-  error?: ResponseError | undefined;
+export interface ApiResponse<TRes> {
+  body: TRes | undefined;
+  error?: ApiResponseError | undefined;
 }
 
-export interface ResponseError {
+export interface ApiResponseError {
   status?: number;
   isApiUnavailable?: boolean;
 }
 
 export async function apiGet<TRes>(
   uri: string,
-): Promise<Response<{ data: TRes }>> {
+): Promise<ApiResponse<{ data: TRes }>> {
   try {
     const res = await axios.get(uri);
 
     return {
-      data: res.data,
+      body: res.data,
     };
   } catch (error: any) {
     console.error({ error });
 
     return {
+      body: undefined,
       error: {
         status: error?.status,
         isApiUnavailable: error?.code && error.code === "ERR_NETWORK",

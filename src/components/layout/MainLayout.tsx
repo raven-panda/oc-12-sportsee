@@ -6,8 +6,6 @@ import ErrorPage from "@/views/error/ErrorPage.tsx";
 
 export default function MainLayout() {
   const { error } = usePageError();
-  console.log({ error });
-
   return (
     <div className={styles.layout}>
       <header>

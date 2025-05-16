@@ -42,21 +42,21 @@ export function useUserData() {
 
     UserService.getAllDataByUserId(userId)
       .then((res) => {
-        setMainData(res.data.mainData?.data);
+        setMainData(res.body?.mainData);
         setScoreData(
           DataToChartDataFormatter.formatScore(
-            res.data.mainData?.data.todayScore ?? res.data.mainData?.data.score,
+            res.body?.mainData?.todayScore ?? res.body?.mainData?.score,
           ),
         );
         setActivities(
           DataToChartDataFormatter.formatActivities(
-            res.data.activity?.data.sessions,
+            res.body?.activity?.sessions,
           ),
         );
-        setAverageSessions(res.data.averageSessions?.data.sessions);
+        setAverageSessions(res.body?.averageSessions?.sessions);
         setPerformances(
           DataToChartDataFormatter.formatPerformances(
-            res.data.performance?.data,
+            res.body?.performance,
           ),
         );
 

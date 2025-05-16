@@ -1,7 +1,7 @@
-import { ResponseError } from "@/api/ApiAction.ts";
+import { ApiResponseError } from "@/api/ApiAction.ts";
 
 export default function PageErrorBuilder(
-  error: ResponseError,
+  error: ApiResponseError,
   subject: string = "Ressource",
 ) {
   let message: string | undefined = undefined;
