@@ -12,7 +12,7 @@ export default function ScoreCard({
 }: {
   score: number | undefined;
 }) {
-  const pieData = [
+  const radialChartData = [
     {
       name: "max",
       value: 1 - Math.max(0, Math.min(1, score ?? 0)),
@@ -34,7 +34,7 @@ export default function ScoreCard({
           outerRadius="100%"
           cx="50%"
           cy="50%"
-          data={pieData}
+          data={radialChartData}
           startAngle={90}
           endAngle={360 + 90}
         >
