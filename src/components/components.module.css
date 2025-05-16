@@ -71,6 +71,17 @@
   cursor: pointer;
 }
 
+.sidebarNavigation .copyrightMention {
+  color: var(--color-common-1);
+  white-space: nowrap;
+  position: absolute;
+  font-size: 0.75rem;
+  bottom: 10%;
+  right: 0;
+  left: 0;
+  transform: rotate(270deg);
+}
+
 /* Cards */
 .cardNeutral,
 .cardDark,

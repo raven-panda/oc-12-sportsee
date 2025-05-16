@@ -37,6 +37,7 @@ export default function SidebarNavigation({
   return (
     <nav className={styles.sidebarNavigation}>
       {getNavigationForGivenVariant()}
+      <p className={styles.copyrightMention}>Copyright, SportSee 2020</p>
     </nav>
   );
 }
