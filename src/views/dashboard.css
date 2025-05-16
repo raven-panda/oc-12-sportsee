@@ -25,18 +25,52 @@
   margin-bottom: 77px;
 }
 
-.dashboard > .dashboard-main-section>  #dashboard-cards-container {
+.dashboard > .dashboard-main-section > #dashboard-cards-container {
   display: flex;
   column-gap: 31px;
 }
 
-.dashboard > .dashboard-main-section>  #dashboard-cards-container > section:first-child {
+.dashboard
+  > .dashboard-main-section
+  > #dashboard-cards-container
+  > section:first-child {
   flex-basis: 80%;
 }
 
-.dashboard > .dashboard-main-section>  #dashboard-cards-container > section:last-child {
+.dashboard
+  > .dashboard-main-section
+  > #dashboard-cards-container
+  > section:first-child
+  > :not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.dashboard
+  > .dashboard-main-section
+  > #dashboard-cards-container
+  > section:last-child {
   flex-basis: 20%;
 }
-.dashboard > .dashboard-main-section>  #dashboard-cards-container > section:last-child > :not(:last-child) {
+.dashboard
+  > .dashboard-main-section
+  > #dashboard-cards-container
+  > section:last-child
+  > :not(:last-child) {
   margin-bottom: 39px;
+}
+
+#dashboard-sub-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  > article {
+    aspect-ratio: 258/263;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .dashboard > .dashboard-main-section {
+    padding: 60px 50px 0 170px;
+  }
 }

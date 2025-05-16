@@ -4,14 +4,22 @@ import {
   ResponseUserMainDataType,
   ResponseUserPerformanceType,
   UserActivitySessionType,
-  UserAverageSessionType
+  UserAverageSessionType,
 } from "@/definition/UserDefinitions.ts";
 
 export function useUserData(userId: number) {
-  const [mainData, setMainData] = useState<ResponseUserMainDataType | undefined>();
-  const [activities, setActivities] = useState<UserActivitySessionType[] | undefined>();
-  const [averageSessions, setAverageSessions] = useState<UserAverageSessionType[] | undefined>();
-  const [performances, setPerformances] = useState<ResponseUserPerformanceType | undefined>();
+  const [mainData, setMainData] = useState<
+    ResponseUserMainDataType | undefined
+  >();
+  const [activities, setActivities] = useState<
+    UserActivitySessionType[] | undefined
+  >();
+  const [averageSessions, setAverageSessions] = useState<
+    UserAverageSessionType[] | undefined
+  >();
+  const [performances, setPerformances] = useState<
+    ResponseUserPerformanceType | undefined
+  >();
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,7 +30,7 @@ export function useUserData(userId: number) {
     }
 
     UserService.getAllDataByUserId(userId)
-      .then(res => {
+      .then((res) => {
         setMainData(res.data.mainData?.data);
         setActivities(res.data.activity?.data.sessions);
         setAverageSessions(res.data.averageSessions?.data.sessions);
@@ -33,5 +41,12 @@ export function useUserData(userId: number) {
       .finally(() => setIsLoading(false));
   }, [userId]);
 
-  return { mainData, activities, averageSessions, performances, error, isLoading };
+  return {
+    mainData,
+    activities,
+    averageSessions,
+    performances,
+    error,
+    isLoading,
+  };
 }

@@ -5,9 +5,9 @@ import Card from "@/components/card/Card.tsx";
 interface InfoCardProps {
   icon: ReactNode;
   name: string;
-  amount: number|string;
+  amount: number | string;
   unit: string;
-  variant: "red"|"blue"|"yellow"|"pink"
+  variant: "red" | "blue" | "yellow" | "pink";
 }
 
 export default function InfoCard({
@@ -19,11 +19,12 @@ export default function InfoCard({
 }: InfoCardProps) {
   return (
     <Card className={styles.infoCard}>
-      <div className={styles.infoCardIcon + " " + styles[variant]}>
-        {icon}
-      </div>
+      <div className={styles.infoCardIcon + " " + styles[variant]}>{icon}</div>
       <div className={styles.infoCardDetails}>
-        <p>{amount}{unit}</p>
+        <p>
+          {amount}
+          {unit}
+        </p>
         <p>{name}</p>
       </div>
     </Card>

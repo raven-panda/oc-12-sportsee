@@ -72,19 +72,106 @@
 }
 
 /* Cards */
-.cardNeutral, .cardDark, .cardRed {
+.cardNeutral,
+.cardDark,
+.cardRed {
   padding: 32px;
   border-radius: 5px;
+  position: relative;
 }
 
 .cardNeutral {
   background-color: var(--color-main-2);
 }
+.cardNeutral .cardTitle {
+  color: var(--color-common-2);
+  opacity: 0.5;
+  margin: 0;
+}
+
 .cardDark {
   background-color: var(--color-main-3);
 }
+
 .cardRed {
-  background-color: var(--color-accent-red);
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-red) 70%,
+    var(--color-accent-red-3) 30%
+  );
+}
+
+.cardRed .cardTitle {
+  color: var(--color-common-1);
+  opacity: 0.5;
+  margin: 0;
+}
+
+.activityCard {
+  aspect-ratio: 835/320;
+}
+
+.sessionTypeRadarCard {
+  padding: 0;
+}
+
+.activityCard .activityCardTooltip {
+  background: #e60000;
+  padding: 10px;
+  color: white;
+}
+
+.activityCard .activityCardLegend {
+  display: flex;
+  margin-bottom: 64px;
+  justify-content: space-between;
+}
+
+.activityCard .activityCardLegend p,
+.activityCard .activityCardLegend h3 {
+  margin: 0;
+}
+
+.activityCard .activityCardLegend p {
+  margin: 0;
+}
+
+.activityCard .activityCardLegendColors {
+  display: flex;
+  gap: 32px;
+}
+
+.activityCard .activityCardLegendColors > article {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.activityCard .activityCardLegendColors > article span {
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+}
+
+.sessionTypeRadarCard .radarTick {
+  font-size: 0.8rem;
+}
+
+.userScore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  color: var(--color-main-4);
+  max-width: 20%;
+  text-align: center;
+}
+
+.userScore strong {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--color-main-3);
 }
 
 .infoCard {
@@ -138,4 +225,56 @@
 .infoCardDetails > p:last-child {
   color: var(--color-main-4);
   font-size: 0.875rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .activityCard,
+  .cardRed,
+  .cardDark,
+  .cardNeutral {
+    font-size: 0.5rem;
+    padding: 8px;
+  }
+  .activityCard .activityCardLegend {
+    margin-bottom: 32px;
+  }
+  .sessionTypeRadarCard {
+    padding: 0;
+  }
+  .sessionTypeRadarCard .radarTick {
+    font-size: 0.3rem;
+  }
+
+  .userScore {
+    font-size: 0.6rem;
+  }
+
+  .userScore strong {
+    font-size: 0.8rem;
+  }
+
+  .appLogo p {
+    font-size: 1rem;
+  }
+
+  .layoutNavigation {
+    padding: 10px 20px;
+  }
+
+  .layoutNavigation a {
+    font-size: 1rem;
+  }
+
+  .sidebarNavigation {
+    padding: 0 20px;
+  }
+
+  .sidebarNavigation > button {
+    padding: 12px;
+  }
+
+  .sidebarNavigation > button svg {
+    width: 24px;
+    height: 24px;
+  }
 }

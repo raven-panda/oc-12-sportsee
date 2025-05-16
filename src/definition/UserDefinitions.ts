@@ -20,12 +20,9 @@ export interface ResponseUserActivityType {
 }
 
 export interface UserActivitySessionType {
-  userId: number;
-  sessions: {
-    day: string;
-    kilogram: number;
-    calories: number;
-  }[];
+  day: string;
+  kilogram: number;
+  calories: number;
 }
 
 export interface ResponseUserAverageSessionsType {
@@ -44,5 +41,5 @@ export interface ResponseUserPerformanceType {
   data: {
     value: number;
     kind: number;
-  }
+  }[];
 }

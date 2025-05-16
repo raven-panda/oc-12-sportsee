@@ -5,18 +5,20 @@ interface Response<TRes> {
   error?: any;
 }
 
-export async function apiGet<TRes>(uri: string): Promise<Response<{ data: TRes }>> {
+export async function apiGet<TRes>(
+  uri: string,
+): Promise<Response<{ data: TRes }>> {
   try {
     const res = await axios.get(uri);
 
-    return ({
-      data: res.data
-    });
+    return {
+      data: res.data,
+    };
   } catch (error) {
-    console.error({error});
+    console.error({ error });
 
-    return ({
-      error: error
-    });
+    return {
+      error: error,
+    };
   }
 }

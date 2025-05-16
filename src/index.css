@@ -58,17 +58,19 @@
   --color-main-1: #020203;
   --color-main-2: #fbfbfb;
   --color-main-3: #282d30;
-  --color-main-4: #74798C;
+  --color-main-4: #74798c;
 
   --color-accent-red: #ff0000;
-  --color-accent-blue: #4AB8FF;
-  --color-accent-yellow: #FDCC0C;
-  --color-accent-pink: #FD5181;
+  --color-accent-blue: #4ab8ff;
+  --color-accent-yellow: #fdcc0c;
+  --color-accent-pink: #fd5181;
 
   --color-accent-red-2: rgba(255, 0, 0, 0.06);
   --color-accent-blue-2: rgba(74, 184, 255, 0.1);
   --color-accent-yellow-2: rgba(253, 204, 12, 0.1);
   --color-accent-pink-2: rgba(253, 81, 129, 0.1);
+
+  --color-accent-red-3: #ea0000;
 
   /* Variables */
   font-family: "Roboto", Arial, sans-serif;
