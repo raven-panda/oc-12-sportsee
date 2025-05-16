@@ -55,9 +55,7 @@ export function useUserData() {
         );
         setAverageSessions(res.body?.averageSessions?.sessions);
         setPerformances(
-          DataToChartDataFormatter.formatPerformances(
-            res.body?.performance,
-          ),
+          DataToChartDataFormatter.formatPerformances(res.body?.performance),
         );
 
         if (res.error) {

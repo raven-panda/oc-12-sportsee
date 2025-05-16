@@ -4,14 +4,25 @@ import { ApiResponseError } from "@/api/ApiAction.ts";
 
 const UserServiceMock: IUserService = {
   async getAllDataByUserId(userId: number) {
-    const mainData = UserMockStore.mainData.find(data => data.id === userId),
-      activity = UserMockStore.activity.find(data => data.userId === userId),
-      averageSessions = UserMockStore.averageSessions.find(data => data.userId === userId),
-      performance = UserMockStore.performance.find(data => data.userId === userId);
+    const mainData = UserMockStore.mainData.find((data) => data.id === userId),
+      activity = UserMockStore.activity.find((data) => data.userId === userId),
+      averageSessions = UserMockStore.averageSessions.find(
+        (data) => data.userId === userId,
+      ),
+      performance = UserMockStore.performance.find(
+        (data) => data.userId === userId,
+      );
 
-    const error: ApiResponseError | undefined = !(mainData || activity || averageSessions || performance) ? {
-      status: 404,
-    } : undefined;
+    const error: ApiResponseError | undefined = !(
+      mainData ||
+      activity ||
+      averageSessions ||
+      performance
+    )
+      ? {
+          status: 404,
+        }
+      : undefined;
 
     return {
       body: {
@@ -20,9 +31,9 @@ const UserServiceMock: IUserService = {
         averageSessions,
         performance,
       },
-      error
+      error,
     };
-  }
+  },
 };
 
 export default UserServiceMock;
